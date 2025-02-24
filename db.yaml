@@ -1,7 +1,7 @@
 - name: Configuaring the DB server
   hosts: db
   become: yes
-  Vars:
+  vars:
     login_host: db.intodevops.online
   tasks:
   - name: Install MySQL server
