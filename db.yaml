@@ -14,6 +14,13 @@
       name: mysqld
       state: started
       enabled: yes
+  
+  - name: install phthon mysql dependencies
+    ansible.builtin.pip:
+      name:
+      - PyMySQL
+      - cryptography
+      executable: pip3.9
     
   - name: Check DB connections
     community.mysql.mysql_info:
