@@ -1,0 +1,29 @@
+-name: Configuaring the DB server
+hosts: db
+become: yes
+Vars:
+  login_host: db.intodevops.online
+tasks:
+ - name: Install MySQL server
+   ansible.builtin.dnf:
+    name: mysql - server
+    state: latest
+
+ - name: Start and Enable the MySQL server
+   ansible.builtin.service:
+    name: mysqld
+    state: started
+    enabled: yes
+  
+ - name: Check DB connections
+   community.mysql.mysql_info:
+    login_user: root
+    login_password: ExpenseApp@1
+    login_host: "{{ login_host }}"
+    filter: version
+   ignore_errors: yes
+   register: MySQL_Connection_output
+
+ - name: Print Output
+   ansible.builtin.debug:
+    msg: "{{ MySQL_Connection_output }}"
