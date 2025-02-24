@@ -6,7 +6,7 @@
   tasks:
   - name: Install MySQL server
     ansible.builtin.dnf:
-      name: mysql - server
+      name: mysql-server
       state: latest
 
   - name: Start and Enable the MySQL server
@@ -26,4 +26,4 @@
 
   - name: Print Output
     ansible.builtin.debug:
-      msg: "{{ MySQL_Connection_output }}"
+      msg: "output: {{ MySQL_Connection_output }}"
