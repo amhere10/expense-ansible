@@ -1,8 +1,8 @@
-- name: configuring the backend
+- name: configuring the backend server
   hosts: backend
   become: yes
   vars:
-    login_host: db.daws78s.online
+    login_host: db.intodevops.online
     login_password: ExpenseApp@1
 
   tasks:
