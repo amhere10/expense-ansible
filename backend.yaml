@@ -50,7 +50,7 @@
      src: backend.service
      dest: /etc/systemd/system/backend.service
 
-  - name: install phthon mysql dependencies
+  - name: install python mysql dependencies
     ansible.builtin.pip:
      name:
       - PyMySQL
